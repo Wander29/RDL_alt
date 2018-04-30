@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Relazione di laboratorio">
+        <meta name="author" content="Ludovico Venturi">
+        <base target="_blank">
+        <title>RDL Sistemi 2</title>
+        <link rel="stylesheet" href="../lib/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Assistant|Nunito|Poiret+One|Vollkorn+SC">
+        <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+        <script src="../lib/scrollReveal/scrollreveal.min.js"></script>
+    </head>
+    <body>
+        <nav class="my-navbar" id="my-navbar" class="container-fluid">
+            <div class="col-md-3">
+                <a href="../home.html" target="_self" ><div id="home"><i class="fa fa-home fa-2x fa-pull-left" aria-hidden="true"><span> Home</span></i></div></a>
+            </div>
+            <div class="col-md-9">
+                <ul class="my-nav-list" align="center">
+                    <li><a target="_self" href="strumenti.html">STRUMENTI</a></li>
+                    <li><a target="_self" href="introduzione.html">INTRODUZIONE</a></li>
+                    <li><a target="_self" href="svolgimento.html">SVOLGIMENTO</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div id="scroll-up"><img src="../assets/img/scroll-up2.png"></div>
+        <div id="progBar" class="progress-bar"></div>
+        <div id="progBarFake" class="progress-bar"></div>
+        <nav id="side-menu" class="side-nav">
+            <ul>
+<!--                <a href="#" class="btn-close" onclick="closeSideMenu()">&times;</a>-->
+                <li><a href="#sec1">MD5 in PHP</a></li>
+                    <ul class="list-ch1">
+                        <li><a href="#sec1-1">Configurazione</a></li>
+                        <li><a href="#sec1-2">Esercizio</a></li>
+                    </ul>
+                <li><a href="#sec2">Conclusioni</a></li>
+            </ul>
+        </nav>
+        
+        <div id="my-main-container" class="col-9">
+            <div id="sec1">
+                <h1><span data-toggle="tooltip" data-placement="right" data-html="true" title="Ludovico <b>Venturi</b>">Algoritmo md5 in PHP</span></h1>
+                <section>
+                <p>
+                    In questa esperienza di laboratorio l’obiettivo è quello di creare un pagina php che generi un digest di una stringa inserita dall’utente tramite un normale form html.
+                </p>
+                </section>
+            </div>
+            <section id="sec1-1">
+                <h2>Configurazione</h2>
+                <p>
+                    Per prima cosa si deve avviare easyPHP e inizializzare il server http, il web server locale che verrà utilizzato dalla pagina php.
+                </p>
+                <img src="../img/conf1.PNG">
+                <p> 
+                    Una volta operativo si passa ad avviare l’IDE da utilizzare, NetBeans.<br>
+                    Da NetBeans si crea un nuovo progetto (File -> New Project) e si sceglie PHP – PHP application.
+                </p>
+                <img src="../img/conf2.PNG">
+                <p>
+                    Successivamente si deve dare il nome al progetto. Nella stessa schermata è di fondamentale importanza fare attenzione alla directory nel quale esso verrà salvato.
+                </p>
+                <p>
+                    Il modo migliore e più <b>efficiente</b> di salvare progetti PHP è quello di salvarli all’interno del web server in modo da poter elaborare e visualizzare il risultato immediatamente.
+                </p>
+                <p>
+                    Per fare ciò si deve conoscere il percorso di installazione del web server e la cartella da utilizzare. Questa si chiama scripts è solitamente si trova al seguente percorso: 
+                    <span class="codice">C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\scripts</span>
+                </p>
+                <p>
+                    Cliccando su Browse si può selezionare tale cartella:
+                </p>
+                <img src="../img/conf3.jpg">
+                <p>
+                    Una volta selezionata si crea la cartella del progetto dentro essa e si può proseguire.
+                    Nella prossima schermata si deve fare attenzione al path nell’indirizzo che compare (relativo al web server).
+                </p>
+                <p>
+                    Solitamente l’indirizzo è: <span class="codice">http://localhost/{cartella_progetto}/</span>
+                </p>
+                <p>
+                    È importante notare che tale indirizzo è sbagliato poiché è necessario aggiungere, manualmente, la cartella <b>scripts</b>
+                    <br>Pertanto il giusto path è:<br>
+                    <span class="codice">http://localhost/scripts/{cartella_progetto}/</span><br>
+                    Si deve ricordare che chiamando un file 'index.php' esso verrà aperto all'apertura della cartella dal web server, senza bisogno di specificare il suo nome.<br><br>
+                    A questo punto la configurazione è terminata.
+                </p>
+            </section>
+            <section id="sec1-2">
+                <h2>Esercizio</h2>
+                <p>
+                    Il risultato, senza considerare la parte grafica, che si vuole ottenere è questo:
+                </p>
+                <img src="../img/es1.PNG">
+                <p>
+                    Il codice della pagina PHP è il seguente:
+                </p>
+                <img src="../img/es2.PNG">
+                <p>
+                    Le prime righe sono la semplice intestazione html dove è presente un collegamento al foglio di stile che stiliza la pagina.
+                </p>
+                <p>
+                    La prima cosa da analizzare è il form per l'inserimento della stringa:
+                </p>
+                <img src="../img/es3.png">
+                <p>
+                    E' presente l'attributo <b>action</b> che indica verso quale pagina php si devono inviare i dati del form, in questo caso è vuoto poichè indica la stessa pagina in questione, e l'attributo <b>method</b> che specifica se utilizzare il POST od il GET per l'invio dei dati al server PHP.
+                </p>
+                <p>
+                    L'attributo <b>name</b> dell'input tipo testo sarà l'identificativo con cui nello script php identificheremo lo stesso per ottenere i dati contenuti in esso:
+                </p>
+                <img src="../img/es4.png">
+                <p>
+                    E' infine presente un bottone <b>submit</b> nel tag input che quando verrà cliccato invierà i dati al server.<br>
+                    Il bottone reset è una piccola aggiunta all'esercizio originale che tramite una semplicissima funzione <b>javascript</b> svuota il <b>value</b> dell'input chiamato <i>testo</i>.
+                </p>
+                <img src="../img/es5.png">
+                <p>
+                    Lo script PHP inizia con un piccolo controllo sull' input: nel caso non sia stata inserito nulla da tastiera lo script non svolge nessuna funzione, in caso contrario eseguirà la cifratura, obiettivo di questa esercitazione.
+                </p>
+                <p>
+                    Per prima cosa viene assegnato ad una variabile il contenuto dell'input <i>testo</i> ottenuto tramite POST una volta clicato il pulsante <i>Cifra (submit)</i>.<br>
+                    Successivamente viene assegnata ad una seconda variabile il valore della prima, cifrata in MD5, tramite la funzione <span class="codice">md5()</span>; essa conterrà quindi il <b>digest</b> dell'input inserito da tastiera.
+                </p>
+                <img src="../img/es6.PNG">
+                <p>
+                    Infine vengono stampate nell'HTML entrambe le variabili tramite <span class="codice">echo</span> (i <b>punti</b> indicano la concatenazione tra stringhe, in PHP).
+                </p>
+                <p>
+                    Il risultato finale e il reale funzionamento di questo esercizio è visibile qui sotto: 
+                </p>
+                <div align="center"><video src="../img/recording.mp4" loop autoplay mute height="400px" id="vid-es"></video></div>
+                <br><br>
+                <p>
+                    Inserendo stringhe diverse da cifrare i risultati saranno sempre diversi e, a causa dell'elevata entropia dell'MD5, anche cambiando una sola lettera il risultato si stravolge.
+                    Dalle prove effettuate si nota anche che al variare della lunghezza della stringa inserita la lunghezza del digest rimane invariata.
+                </p>
+                <p>
+                    <br><div class="download"><a href="https://mega.nz/#!gQxxTaSC!kTwX0kr8ii1VkJK6TCrSYQgq2dBx3E-MAl3hEM45mCA">Download<img src="../assets/img/mega.png"></a></div><br>
+                </p>
+            </section>
+            <hr>
+            <div id="sec2">
+                <h1><span data-toggle="tooltip" data-placement="right" data-html="true" title="Ludovico <b>Venturi</b>">Conclusioni</span></h1>
+                <p>Al termine dell’esercitazione si può affermare che non sono state riscontrate criticità nell’affrontarla.</p>
+                <p>Tramite l' esercizio è stato possibile consolidare quanto appreso durante le lezioni teoriche e presente nella parte introduttiva della presente relazione: si è ora in grado di configurare l'IDE per l'utilizzo con PHP, si è in grado di utilizzare pagine che inviano dati ad una pagina PHP e cosa più importante si è inziato a prendere dimestichezza con la funzione md5() in PHP per generare messaggi digest.</p>
+            </div>
+            <div class="spazio">
+        </div>
+        <script src="../lib/jquery-3.2.1/jquery-3.2.1.min.js"></script>
+        <script src="../lib/bootstrap-4.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../lib/scrollSpy/scrollspy.min.js"></script>
+        <script>
+            $("#side-menu").scrollspy({ offset: 10 });
+        </script>
+        <script src="../assets/js/js.js"></script>
+    </body>
+</html>

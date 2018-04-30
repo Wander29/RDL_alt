@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Ludovico Venturi">
+        <title>RDL Alternanza</title>
+        <link rel="stylesheet" href="lib/materialize/css/materialize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Assistant|Nunito|Poiret+One|Vollkorn+SC">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/homepage.css">
+        <script src="lib/scrollReveal/scrollreveal.min.js"></script>
+        <script src="lib/jquery-3.2.1/jquery-3.2.1.min.js"></script>
+        <script src="lib/materialize/js/materialize.min.js"></script>
+    </head>
+    <body>
+    <header class="my-cont">
+        <div class="fullscreen-video-wrap">
+            <video src="assets/vid/vid_bg.mp4" loop="true" autoplay="true"></video>
+        </div>
+        <div class="header-overlay"></div>
+        <div class="header-content center-align">
+            <div class="row">
+                <div id="main-title"><h1>Relazione <span class="my-white">Alternanza</span><br><bR>DataBase</h1></div>
+                <p><span class="waves-effect waves-light">Ludovico Venturi <span class="my-white">5°AIA</span></span></p>
+            </div>
+            <a href="pages/strumenti.html"><button class="btn-home waves-effect waves-light orange">RELAZIONE</button></a>
+        </div>
+    </header>        
+<script>
+    window.sr = ScrollReveal();
+    if(window.innerWidth > 700)
+    {
+        sr.reveal('.btn-home', {
+            duration: 2000,
+            origin: 'right',
+            distance: '400px'
+        });
+
+        sr.reveal('#main-title', {
+            duration: 2000,
+            origin: 'top',
+            delay: 100
+        });
+
+        sr.reveal('.header-content p', {
+            duration: 2000,
+            origin: 'left',
+            delay: 500,
+            distance: '500px'
+        });
+    }
+</script>
+    </body>
+</html>

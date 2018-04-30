@@ -1,0 +1,524 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Relazione di laboratorio">
+        <meta name="author" content="Ludovico Venturi">
+        <base target="_blank">
+        <title>RDL Sistemi 2</title>
+        <link rel="stylesheet" href="../lib/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Assistant|Nunito|Poiret+One|Vollkorn+SC">
+        <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+        <script src="../lib/scrollReveal/scrollreveal.min.js"></script>
+    </head>
+    <body>
+        <nav class="my-navbar" id="my-navbar" class="container-fluid">
+            <div class="col-md-3">
+                <a href="../home.html" target="_self" ><div id="home"><i class="fa fa-home fa-2x fa-pull-left" aria-hidden="true"><span> Home</span></i></div></a>
+            </div>
+            <div class="col-md-9">
+                <ul class="my-nav-list" align="center">
+                    <li><a target="_self" href="strumenti.html">STRUMENTI</a></li>
+                    <li><a target="_self" href="introduzione.html">INTRODUZIONE</a></li>
+                    <li><a target="_self" href="svolgimento.html">SVOLGIMENTO</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div id="scroll-up"><img src="../assets/img/scroll-up2.png"></div>
+        <div id="progBar" class="progress-bar"></div>
+        <div id="progBarFake" class="progress-bar"></div>
+        <nav id="side-menu" class="side-nav">
+            <ul>
+<!--                <a href="#" class="btn-close" onclick="closeSideMenu()">&times;</a>-->
+                <li><a href="#sec1">Crittografia</a></li>
+                    <ul class="list-ch1">
+                        <li><a href="#sec1-1">Criptoanalisi</a></li>
+                        <li><a href="#sec1-2">Simmetrica</a></li>
+                        <li><a href="#sec1-3">Asimmetrica</a></li>
+                        <li><a href="#sec1-4">Ibrida</a></li>
+                    </ul>
+                
+                <li><a href="#sec2">Algoritmi</a></li>
+                    <ul class="list-ch1">
+                        <li><a href="#sec2-1">DES</a></li>
+                        <li><a href="#sec2-2">3-DES</a></li>
+                        <li><a href="#sec2-3">IDEA</a></li>
+                        <li><a href="#sec2-4">AES</a></li>
+                        <li><a href="#sec2-5">RSA</a></li>
+                    </ul>
+                
+                <li><a href="#sec3">FIRMA DIGITALE</a></li>
+                    <ul class="list-ch1">
+                        <li><a href="#sec3-1">HASH</a></li>
+                        <li><a href="#sec3-2">MD5</a></li>
+                    </ul>
+                
+                <li><a href="#sec4">PHP</a></li>
+                    <ul class="list-ch1">
+                        <li><a href="#sec4-1">EasyPHP</a></li>
+                        <li><a href="#sec4-2">NetBeans</a></li>
+                    </ul>
+                
+            </ul>
+            <div id="copyright"><i class="fa fa-copyright"></i> 2017 Ludovico Venturi</div></div>
+        </nav>
+        <div id="my-main-container" class="col-9">
+            <div id="sec1">
+                <h1><span data-toggle="tooltip" data-placement="right" data-html="true" title="Ludovico <b>Venturi</b>">Crittografia</span></h1>
+                <section>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <p>
+                                Per <b>Crittografia</b> si intende qualsiasi tecnica che permette di "cifrare" un messaggio rendendolo incomprensibile a tutti fuorché al suo destinatario. Rappresenta l’insieme delle tecniche che consentono di realizzare la cifratura di un testo e la decifratura di un crittogramma (messaggio cifrato).
+                            </p>
+                            </div>
+                        <div class="col-sm-4 riquadro">
+                            <p><u>etimologia Crittografia</u><br> unione di due parole greche: κρυπτóς [<b>kryptós</b>],"nascosto", e γραφία [<b>graphía</b>]"scrittura") </p>
+                        </div>   
+                    </div>
+                    <p>
+                        Il rendere nascoste delle informazioni è da sempre stata un’esigenza dell’uomo pertanto la crittografia non è nata con l’era di Internet ma all’incirca 4500 anni fa.
+                    </p>
+                    <p>
+                        L’<b>Algoritmo di cifratura</b> stabilisce una corrispondenza tra i simboli in chiaro e quelli cifrati. Il messaggio in chiaro è chiamato <b>plain text</b> mentre quello criptato <b>cypher text</b>.
+                    </p>
+                    <p>
+                        È importante notare la differenza tra codifica e cifratura:
+                        <ul>
+                            <li><b>CODIFICA</b>: sostituire alcune parole con altre</li>    
+                            <li><b>CIFRATURA</b>: sostituire lettere o caratteri con altri</li>    
+                        </ul>
+                    </p>
+                    <p>
+                        La <b>regola</b> di cifratura è composta dalla regola e da uno è più parametri. Concretamente la regola è l’algoritmo di criptazione mentre il parametro è la <b>chiave</b>.
+                    </p>
+                    <p><bR>
+                        La crittografia permette di rendere sicura la rete, o almeno questo è il suo obiettivo, essa infatti copre i seguenti aspetti:
+                        <ul>
+                            <li><b>segretezza</b>: le informazioni inviate devono essere leggibili solo al rispettivo destinatario, nel caso in cui esse vengano intercettate non devono essere leggibili</li>
+                            <li><b>autenticazione</b>: riconoscimento delle credenziali dell’utente</li>
+                            <li><b>affidabilità</b>: avere la garanzia e la certezza che un documento sia originale, che il suo mittente sia certo e che non sia stato letto e/o alterato da altri non autorizzati</li>
+                        </ul>
+                    </p>
+                </section>
+            </div>
+            <section id="sec1-1">
+                <h2>Criptoanalisi</h2>
+                    <p>
+                        Per criptoanalisi si intende "l'analisi" del testo cifrato nel tentativo di decodificare un messaggio codificato da altri e del quale non si possiede la chiave. Consiste nello <b>studio dei metodi</b> per ottenere il significato di informazioni cifrate, ovvero la ricerca della chiave segreta. <br>L’algoritmo di codifica è in genere conosciuto poiché standardizzato, deve essere così sicuro da non permettere ‘buchi’.
+                    </p>
+                    <p>
+                        Secondo il principio di Kerckoffs la chiave deve essere l’elemento fondamentale per la sicurezza di un sistema informatico poichè essa deve dipendere solo dalla segretezza della chiave in quanto l’algoritmo non è segreto.
+                    </p>
+            </section>
+            <section id="sec1-2">
+                <h2>Crittografia Simmetrica</h2>
+                <p>Se la chiave di cifratura coincide con quella di decifratura lo schema crittografico si dice <b>simmetrico</b> e la chiave prende il nome di <b>chiave comune</b>.
+                </p>
+                    <img src="../img/cr_sim1.png">
+                <p>
+                    I principali algoritmi di cifratura simmetrici sono:
+                    <ul>
+                        <li>DES</li>
+                        <li>3-DES</li>
+                        <li>IDEA</li>
+                        <li>AES</li>
+                    </ul>
+                </p>
+                <p>
+                    Gli algoritmi di cifratura simmetrici presentano però dei <b>limiti</b>, tra cui
+                    <ul>
+                        <li>Per comunicare si deve essere in possesso della stessa chiave</li>
+                        <li>La chiave può essere persa o ceduta ad altri</li>
+                        <li>L'evoluzione tecnologica potrebbe dar vita ad elaboratori tanto potenti da riuscire a scovare la chiave utilizata</li>
+                        <li>L'utilizzo continuato della stessa chiave potrebbe dare indizi sulla chiave utilizzata favorendo così il decriptaggio</li>
+                    </ul>
+                    Nella crittografia asimmetrica tali limiti sono invece superati poichè non è necessario lo scambio delle chiavi.
+                </p>
+            </section>
+            <section id="sec1-3">
+                <h2>Crittografia Asimmetrica</h2>
+                <p>
+                    Nella crittografia asimmetrica vengono utilizzate <b>2 chiavi</b> da ogni utente. <br>Una è pubblica, conosciuta da tutti e l’altra è invece privata. Le chiavi sono correlate tra loro ma da quella pubblica non è possibile risalire a quella privata.
+                    La chiave <b>pubblica</b> viene utilizzata per la cifratura mentre quella <b>privata</b> per la decifratura.
+                </p>
+                <p>
+                    Concretamente il mittente cripta il messaggio con la chiave pubblica del destinatario in modo tale che solo quest’ultimo possa decifrare il messaggio con la sua chiave privata.
+                    In questo modo non è necessario lo scambio delle chiavi.
+                </p>
+                    <img src="../img/cr_asim1.png">
+                <p>
+                    Anche il numero delle chiavi da utilizzare per comunicare con più utenti diminuisce drasticamente: se prima era necessaria una chiave per ogni coppia di utenti ora ne servono solo 2 per utente, considerando un panorama globale il risparmio è notevole:
+                </p>
+                    <img src="../img/cr_asim2.png">
+                <p>
+                    Si risolvono così i problemi della <b>riservatezza</b> e dell’<b>autenticità</b> del mittente.
+                    Come si vedrà in seguito il messaggio viene criptato con la chiave privata del mittente solo in caso di firma digitale, in tutti gli altri casi viene utilizzata la chiave pubblica del destinatario. Sono possibili quindi 2 utilizzi della crittografia asimmetrica, in modalità:
+                    <ul>
+                        <li><b>confidenziale</b>: per la criptazione dei dati</li> 
+                        <li><b>autenticazione</b>: per la firma digitale</li>
+                    </ul>
+                </p>
+                <p>
+                    Si possono però anche utilizzare entrambe le modalità insieme, ovvero è possibile cifrare il messaggio prima con la chiave pubblica del destinatario e successivamente con la chiave privata del mittente, in questo modo si ‘pone la firma elettronica sul messaggio in modo sicuro.
+                </p>
+                <p>
+                    Lo svantaggio principale della crittografia asimmetrica è la scarsa efficienza computazionale dovuta alla <b>complessità</b> dei calcoli e alla lunghezza della chiave. Nella crittografia simmetrica per garantire la stessa sicurezza teorica bastano chiavi molto più corte:
+                </p>
+                    <img src="../img/cr_asim3.png">
+                <p>
+                    Nel corso degli anni, a causa del progresso informatico la lunghezza delle chiavi da utilizzare è sempre cresciuta, oggi si devono utilizzare infatti chiavi di <b>2048 bit</b>.
+                </p>
+            </section>
+            <section id="sec1-4">
+                <h2>Crittografia Ibrida</h2>
+                <p>
+                    Nonostante sia stato risolto il problema dello scambio sicuro della chiave con gli algoritmi asimmetrici rimane un grave problema: l’<b>efficienza</b>. Per ovviarvi è possibile utilizzare un sistema di crittografia <b>ibrida</b> nel quale vengono utilizzati entrambi i tipi di crittografia.
+                </p>
+                <p>
+                    La crittografia ibrida unisce i vantaggi di quella simmetrica con i vantaggi di quella assimetrica. <br>Verrà utilizzata la crittografia asimmetrica attraverso l’utilizzo della chiave pubblica che sarà utilizzata per cifrare soltanto la chiave (di sessione) la quale cifrerà in modo simmetrico il documento da inviare.
+                </p>
+                    <img src="../img/cr_ibr1.PNG">
+            </section>
+            <hr><br><br>
+            <div id="sec2">
+                <h1><span data-toggle="tooltip" data-placement="right" data-html="true" title="Ludovico <b>Venturi</b>">Algoritmi di cifratura</span></h1>
+            </div> 
+            <section id="sec2-1">
+                <h2>DES</h2>
+                <p>
+                    Il <b>Data Encryption Standard</b> (DES) è un algoritmo di cifratura sviluppato Horst Feistel per l’IBM nel 1976 scelto come standard dal Federal Information Processing Standard (FIPS) per il governo degli Stati Uniti d'America nel 1976 e in seguito diventato di utilizzo internazionale. 
+                    Attualmente DES è considerato insicuro per moltissime applicazioni. 
+                </p>
+                <p class="cit">
+                    Nel gennaio del 1999 distributed.net e Electronic Frontier Foundation collaborarono per rompere pubblicamente una chiave di crittazione, e ci riuscirono in 22 ore e 15 minuti. Con le potenze di calcolo disponibili al 2009 si può forzare una chiave DES in poche ore esaminando tutte le possibili combinazioni. <a href="#fonte1" target="_self" class="indice">1</a>
+                </p>
+                <p>
+                    Si basa su un algoritmo a chiave <b>simmetrica</b> con chiave a <b>64</b> bit (ma solo 56 utili poiché 8 sono di controllo). 
+                    L'algoritmo è composto da 16 trasformazioni successive applicate ad ogni blocco del massaggio (da 8 byte).
+                    Vengono effettuate sia trasposizioni che sostituzioni.
+                </p>
+                    <img src="../img/des1.gif" width="70%">
+                <p>
+                    Dopo l'iniziale suddivisione in blocchi da 64 cifre binarie vengono applicate delle trasposizioni.<br>
+                    Successivamente per 16 volte si applica una funzione cifrante di <b>sostituzione</b> dei bit, usando 2 porzioni (da 28 bit) della chiave ciascuna delle quali viene ruotata a sinistra di un certo numero di bit che dipende dal <b>numero di iterazione</b>. L'ultimo passaggio consiste in una <b>trasposizione inversa</b> a quella iniziale.
+                </p>
+            </section>
+            <section id="sec2-2">
+                <h2>3-DES</h2>
+                <p>
+                    Nel 1999 è stato introdotto <b>Triple DES</b> ovvero tre passi di cifratura DES consecutivi con tre chiavi diverse, per un totale di <b>168 bit</b> come lunghezza della chiave.
+                </p>
+                <img src="../img/3des.png">
+                <p>
+                    Il passo centrale con la seconda chiave consiste in una decriptazione come si può notare dall'immagine.<br>
+                    Si possono avere 3 alternative nell'utilizzo del DES:
+                    <ul>
+                        <li>3 chiavi diverse, 168bit</li>
+                        <li>2 chiavi uguali (la 1° e la 3°), 112bit</li>
+                        <li>3 chiavi uguali, 56bit</li>
+                    </ul>
+                    Le alternative consentono di avere 3 livelli diversi di sicurezza e di consentire la compatibilità con il vecchio DES.
+                </p>
+            </section>
+            <section id="sec2-3">
+                <h2>IDEA</h2>
+                <p>
+                    L'<b>International Data Encryption Algorithm</b> (IDEA) è un algoritmo crittografico a blocchi sviluppato da Xuejia Lai e James Massey, del Politecnico federale di Zurigo, e pubblicato per la prima volta nel <b>1991</b>. L'algoritmo doveva rappresentare un sostituto del DES. 
+                </p>
+                <p>
+                    Fu brevettato in diverse Nazioni, ma rimase liberamente utilizzabile in software di tipo non commerciale; anche il nome "IDEA" fu brevettato. Gli ultimi brevetti sono scaduti nel 2012 e adesso IDEA è liberamente utilizzabile.
+                </p>
+                <p>
+                    IDEA opera su blocchi di dati di <b>64 bit</b> utilizzando una chiave di <b>128 bit</b> effettuando una serie di 8 passaggi identici (round) durante i quali vengono eseguite le seguenti operazioni, tutte su numeri a 16 bit:
+                    <ul>
+                        <li>XOR (OR esclusivo), indicato con un ⊕ blu</li>
+                        <li>addizione modulo 216, indicata in verde</li>
+                        <li>moltiplicazione modulo 216+1 (dove un numero con tutte cifre 0 è interpretato come 216), indicato in rosso</li>
+                    </ul>
+                </p>
+                    <img src="../img/idea1.png">
+                <p>
+                    <ul>
+                        <li>Ad ogni passaggio la chiave viene divisa in blocchi di 16 bit ciascuno denominati sottochiavi (indicati in figura con K1...K6)</li>
+                        <li>Di questi ne vengono impiegati solo i primi 6: questo significa che ad ogni passaggio sono utilizzati solo 96 dei 128 bit della chiave</li>
+                        <li>Dopo ogni passaggio (compreso l'ultimo prima del passaggio finale), la chiave viene ruotata di 25 bit a sinistra e vengono ripresi i primi 6 blocchi di 16 bit ciascuno della chiave stessa</li>
+                        <li>vengono utilizzate 6 sottochiavi e un blocco di dati da 64 bit diviso in 4 sottoblocchi da 16 bit ciascuno ad ogni round</li>
+                        <li>Durante ogni passaggio i 4 sottoblocchi sono moltiplicati e sommati modulo 216 con 4 sottochiavi, dopodiché i 4 blocchi risultanti da questi calcoli sono combinati a due a due con un'operazione di XOR per ottenere 2 blocchi da 16 bit.</li>
+                        <li>Questi ultimi sono moltiplicati/sommati modulo 216 con le restanti 2 sottochiavi ancora non utilizzate nel passaggio</li>
+                        <li>I 2 sottoblocchi finali vengono combinati con lo XOR con i 4 sottoblocchi dell'operazione precedente in modo da avere in output 4 sottoblocchi da 16 bit ciascuno</li>
+                        <li>Alla fine di 8 di questi passaggi, viene eseguito un semi-passaggio denominato "trasformazione finale" in cui i 4 sottoblocchi finali sono combinati con le prime 4 sottochiavi mediante operazioni di moltiplicazione e addizione modulo 216</li>
+                    </ul>
+                </p>
+                <p class="cit">
+                    L'algoritmo IDEA è uno dei più resistenti e ad oggi non risulta che sia stato violato. Per attacchi a forza bruta si calcola che la violazione di una chiave a 128 bit impieghi nel migliore dei casi 2 × 1015  anni per la riuscita. 
+                    <br>Nel 2005 è stato lanciato un successore dell'IDEA denominato <b>IDEA NXT</b> (noto precedentemente come FOX): in questa versione migliorata la chiave può assumere qualunque lunghezza fino a 256 bit e i blocchi dati possono essere lunghi anche 128 bit.<a href="#fonte2" target="_self" class="indice">2</a>
+                </p>
+            </section>
+            <section id="sec2-4">
+                <h2>AES</h2>
+                <p>
+                    L'<b>Advanced Encryption Standard</b> (AES) è un algoritmo di cifratura a blocchi utilizzato come standard dal governo degli Stati Uniti d'America.
+                </p>
+                <p>
+                    Data la sua sicurezza e le sue specifiche pubbliche si presume che in un prossimo futuro venga utilizzato in tutto il mondo come è successo al suo predecessore, il DES. 
+                </p>
+                <p>
+                    AES è stato adottato dalla National Institute of Standards and Technology (NIST) nel novembre del 2001 dopo 5 anni di studi, standardizzazioni e selezione finale tra i vari algoritmi proposti.
+                    L'algoritmo è stato sviluppato da due crittografi belgi, Joan Daemen e Vincent Rijmen.
+                </p>
+                <p>
+                    Fu scelto l’<b>AES</b> come algoritmo poiché risultava oltre che sicuro efficiente, versatile, flessibile e dal basso costo computazionale. Doveva essere possibile eseguirlo anche sulle smart card. 
+                </p>
+                <p>
+                    L’AES è un cifrario a blocchi con lunghezza del blocco da <b>128 bit</b>, ma può avere chiavi indipendenti l’una dall’altra con lunghezza variabile di 128 (la più usata), 192 o 256 bit, ed effettua una combinazione di permutazioni e sostituzioni.
+                </p>
+                <p>
+                    Durante la prima operazione dell’algoritmo vengono presi i 128 bit del blocco (128/8=16 caratteri) e vengono disposti in una griglia <b>4x4</b> byte.
+                    La codifica consiste in un insieme di 10 fasi (rounds) ciascuna composta da <b>4 trasformazioni</b> (nel caso di chiavi a 128 bit).
+                </p>
+                    <img src="../img/aes1.png" width="50%">
+                <p>
+                    <ul><li><u>1° Trasformazione</u>: <b>Substitute Bytes</b></li></ul>
+                    Ogni byte viene trasformato mediante una permutazione non lineare di byte che vengono mappati tramite una tabella particolare definita in AES stesso.
+                </p>
+                    <img src="../img/aes2.png">
+                <p>
+                    <ul><li><u>2° Trasformazione</u>: <b>Shift Rows</b></li></ul>
+                     Le righe della matrice subiscono un semplice scorrimento di bytes nell'array state dove la prima riga rimane invariata, dalla seconda alla quarta viene sempre eseguito uno scorrimento circolare a sinistra di uno due e tre bytes rispettivamente.
+                </p>
+                    <img src="../img/aes3.png">
+                <p>
+                    <ul><li><u>3° Trasformazione</u>: <b>Mix Columns</b></li></ul>
+                     Ogni colonna viene trasformata mediante una operazione che può essere vista come una moltiplicazione matriciale con una particolare matrice generata da un polinomio prefissato.
+                </p>
+                    <img src="../img/aes4.png">
+                <p>
+                    <ul><li><u>4° Trasformazione</u>: <b>Add Round Key</b></li></ul>
+                    Questa è la fase in cui viene inserita la chiave segreta che rende il cifrario sicuro: ogni byte viene combinato in XOR con la chiave da 128 bit (16 bytes). A ogni round la chiave aggiunta è diversa e ricavata dalle precedenti ricorsivamente.
+                </p>
+                    <img src="../img/aes5.png">
+
+            </section>
+            <section id="sec2-5">
+                <h2>RSA</h2>
+                <p>
+                    La sigla RSA indica un algoritmo di crittografia <b>asimmetrica</b>, inventato nel 1977 da Ronald Rivest, Adi Shamir e Leonard Adleman (da cui RSA) utilizzabile per cifrare o firmare informazioni. 
+                </p>
+                <p>
+                    L'RSA sfrutta i <b>numeri primi</b> e come chiave utilizza un numero <b>n</b> ottenuto proprio dal prodotto di 2 numeri primi p e q. Per decriptare un messaggio cifrato con RSA è necessario decomporre la chiave n nei due numeri primi p e q.
+                    <br>L'algoritmo, a livello teorico, funziona seguendo questi passaggi: 
+                    <ul>
+                        <li>A deve spedire un messaggio segreto a B</li>
+                        <li>B sceglie due numeri primi molto grandi e li moltiplica tra loro (generazione delle chiavi)</li>
+                        <li>B invia ad A "in chiaro" il numero che ha ottenuto</li>
+                        <li>A usa questo numero per crittografare il messaggio</li>
+                        <li>A manda il messaggio a B, che chiunque può vedere ma non leggere</li>
+                        <li>B riceve il messaggio e utilizzando i due fattori primi, che solo lui conosce, decifra il messaggio</li>
+                    </ul>
+                </p>
+                <img src="../img/rsa1.jpg" width="50%">
+                <p>
+                    E' un algoritmo difficilmente reversibile pertanto è computazionalmente impossibile risalire ai due numeri primi p e q in tempi accettabili.
+                    L'RSA viene utilizzato anche nell'ambito della <b>Firma digitale</b> poichè garantisce
+                    <ul>
+                        <li>la NON falsificabilità della firma</li>
+                        <li>la NON riutilizzabilità della firma</li>
+                        <li>la NON alterabilità del messaggio firmato</li>
+                        <li>la NON ripudiabilità della firma</li>
+                    </ul>
+                </p>
+            </section>
+                
+            <p>
+                <div class="fonte" id="fonte1">
+                    <a href="https://it.wikipedia.org/wiki/Data_Encryption_Standard"><span class="indice">1</span> https://it.wikipedia.org/wiki/Data_Encryption_Standard</a>
+                </div>
+                <div class="fonte" id="fonte2">
+                    <a href="https://it.wikipedia.org/wiki/International_Data_Encryption_Algorithm"><span class="indice">2</span>https://it.wikipedia.org/wiki/International_Data_Encryption_Algorithm</a>
+                </div>
+            </p>
+            <hr><br><br>
+            <div id="sec3">
+                <h1><span data-toggle="tooltip" data-placement="right" data-html="true" title="Ludovico <b>Venturi</b>">
+                    Firma Digitale</span></h1>
+                <section>
+                    <p>
+                        In molti casi non è necessaria la segretezza ma ci si vuole focalizzare sull’integrità del messaggio e sulla relativa <b>autenticazione</b>.
+                    </p>
+                    <p>
+                        E’ sufficiente perciò che il messaggio venga imbustato dentro un contenitore digitale chiamato <b>firma digitale</b>. Tale busta ha estensione <b>.p7m</b> ed è possibile firmarvi qualsiasi documento.
+                    </p>
+                    <p>
+                        La firma digitale è in grado di attestare la validità, la veridicità e la paternità di un documento elettronico rendendo possibile risalire all’identità del firmatario.<br>
+                        La firma digitale è l’equivalente informatico di una tradizionale firma apposta su carta.
+                    </p>
+                    <p>
+                        Si basa su un sistema di codifica crittografica a chiavi asimmetriche che consente:
+                        <ul>
+                            <li>la sottoscrizione di un documento informatico</li>
+                            <li>la verifrica dell’identità dell’identità del mittente</li>
+                            <li>la certezza che il documento non venga alterato</li>
+                        </ul>
+                    </p>
+                    <p>
+                        Concretamente l’utente deve disporre di un <b>dispositivo di firma elettronica </b>come una smart Card (ad esempio la Tessera Sanitaria), una token USB o una Business Key.
+                    </p>
+                    <p>
+                        Poiché gli algoritmi a chiave asimmetrica hanno lo svantaggio di essere lenti, RSA incluso, vengono utilizzare funzioni di <b>Hash</b> che restituiscono una stringa limitata di caratteri a prescindere dalla lunghezza del messaggio.
+                    </p>
+                    <p>
+                        Un esempio di utilizzo di firma digitale è il seguente:
+                        <ul>
+                            <li>il mittente estrae il digest del messaggio in chiaro</li>
+                            <li>Il digest viene cifrato (ad esempio con la smart card) con la chiave privata del mittente</li>
+                            <li>Il digest cifrato viene inviato in coda al messaggio in chiaro</li>
+                            <li>Il destinatario estrae a sua volta il digest dal messaggio in chiaro e allo stesso tempo decifra utilizzando la chiave pubblica del destinatario il digest ricevuto</li>
+                            <li>Vengono confrontati i 2 digest, se corrispondono il messaggio non è stato alterato ed è autenticato, in caso contrario no</li>
+                        </ul>
+                    </p>
+                        <img src="../img/fir1.png">
+                </section>
+            </div>
+            <section id="sec3-1">
+                <h2>Funzioni di Hash</h2>
+                <p>
+                    L'hash è una funzione iniettiva <b>non invertibile</b> che mappa una stringa di lunghezza arbitraria in una stringa di lunghezza minore. Esistono numerosi algoritmi che realizzano funzioni hash con particolari proprietà che dipendono dall'applicazione.
+                </p>
+                <p>
+                    Nelle applicazioni crittografiche si chiede, che la funzione hash abbia le seguenti proprietà:
+                    <ul>
+                        <li>Resistenza alla preimmagine: sia computazionalmente intrattabile la ricerca di una stringa in input che dia un hash uguale a un dato hash</li>
+                        <li>Resistenza alla seconda preimmagine: sia computazionalmente intrattabile la ricerca di una stringa in input che dia un hash uguale a quello di una data stringa</li>
+                        <li>l’entropia deve essere molto elevata</li>
+                        <li>resistenza alle collisioni: sia computazionalmente intrattabile la ricerca di una coppia di stringhe in input che diano lo stesso hash</li>
+                    </ul>
+                </p>
+                <p>
+                    L'algoritmo di hash elabora qualunque mole di bit (in informatica si dice che elabora dati "grezzi") restituendo una stringa di numeri e lettere a partire da un qualsiasi flusso di bit di qualsiasi dimensione (può essere un file ma anche una stringa). L'output è detto <b>digest</b>.
+                </p>
+                <p>
+                    L'algoritmo non è invertibile, ossia non è possibile ricostruire il documento originale a partire dalla stringa che viene restituita in output ovvero è una funzione unidirezionale. Non esiste una corrispondenza biunivoca tra l'hash e il testo. 
+                </p>
+                <p>
+                    Quando due testi producono lo stesso hash, si parla di <b>collisione</b>, e la qualità di una funzione di hash è misurata direttamente in base alla difficoltà nell'individuare due testi che generino una collisione. 
+                </p>
+                <p>
+                    Per sconsigliare l'utilizzo di algoritmi di hashing in passato considerati sicuri è stato infatti sufficiente che un singolo gruppo di ricercatori riuscisse a generare una collisione. Questo è quello che è avvenuto ad esempio per gli algoritmi SNEFRU, MD2, MD4 ed MD5.
+                </p>
+                <p>
+                    Un hash crittograficamente sicuro non dovrebbe permettere di risalire, in un tempo confrontabile con l'utilizzo dell'hash stesso, ad un testo che possa generarlo.
+                </p>
+            </section>
+            <section id="sec3-2">
+                <h2>MD5</h2>
+                <p>
+                    L’MD5, acronimo di <b>Message Digest 5</b>, è una funzione hash crittografica a senso unico (cioè che non prevede di essere decrittato), creato nel 1991 da Ronald Rivest e standardizzata con la RFC 1321 a causa dell’inefficienza del suo predecessore: MD4.<br>
+                    È una funzione unidirezionale diversa dalla codifica e dalla cifratura perché irreversibile.
+                </p>
+                <img src="../img/md5.jpg" width="40%">
+                <p>
+                    Dal punto di vista tecnico, MD5 è una funzione di compressione, che dato un input formato da una stringa di lunghezza arbitraria, restituisce una stringa da 128 bit.<br>
+                    Il processo avviene molto velocemente e l'output (noto anche come "MD5 Checksum" o "MD5 Hash") restituito è tale per cui è altamente improbabile ottenere con due diverse stringhe in input uno stesso valore hash in output. 
+                </p>
+                <p>
+                    A oggi, la disponibilità di algoritmi efficienti capaci di generare stringhe che collidono (ovvero che producono in output lo stesso valore di hash) in un tempo ragionevole ha reso MD5 sfavorito rispetto ad altri algoritmi di hashing (come WHIRLPOOL, SHA-1 o RIPEMD-160). Nonostante ciò la sua diffusione è tutt'oggi molto estesa (ad esempio il controllo di integrità più frequente su file si basa proprio su MD5).
+                </p>
+                <p>
+                    La crittografia tramite algoritmo MD5 viene applicata in tutti i settori dell'informatica che lavorano con il supporto delle firme digitali o che trattano dati sensibili; come le altre funzioni di hash, MD5 viene utilizzato anche per altri motivi, ad esempio per:
+                    <ul>
+                        <li>Integrità dei file</li>
+                        <li>Controllare modifica file</li>
+                        <li>Autenticazione nel web</li>
+                    </ul>
+                </p>
+                <p>
+                    Permette infatti di verificare l’integrità dei <b>downloads</b>, tramite un checksum da confrontare: assieme al file del download, viene fornita la stringa che corrisponde all’hash dei file immessi come input. Se l’hash ottenuto non corrisponde a quello fornito dal download, potrebbe essersi verificata una perdita di dati.
+                </p>
+                <p>
+                    Allo stesso metodo si può verificare se il contenuto di un file è cambiato (funzione utilizzata dai motori di ricerca per capire se una pagina deve essere nuovamente indicizzata).
+                </p>
+                <p>
+                    È utilizzato anche come supporto per l'autenticazione degli utenti attraverso i linguaggi di scripting Web server-side (<b>PHP</b> in particolare): durante la registrazione di un utente su un portale internet, la password scelta durante il processo verrà codificata tramite MD5 e la sua <b>firma digitale</b> verrà memorizzata nel database. Successivamente, durante il login la password immessa dall'utente subirà lo stesso trattamento e verrà confrontata con la copia in possesso del server, per avere la certezza dell'autenticità del login.
+                </p>
+            </section>
+<!--
+                <p class="cit">
+                    “JSON è un formato di testo completamente <b>indipendente</b> dal
+                    linguaggio di programmazione, ma utilizza convenzioni conosciute dai
+                    programmatori di linguaggi della famiglia del C”. <a href="#fonte1" target="_self" class="indice">1</a>
+                </p>
+                <p class="fonte" id="fonte1">
+                    <a href="https://www.json.org/json-it.html"><span class="indice">1</span> https://www.json.org/json-it.html</a><br>
+                    <a href="https://it.wikipedia.org/wiki/JavaScript_Object_Notation"><span class="indice">2</span> https://it.wikipedia.org/wiki/JavaScript_Object_Notation</a><br>
+                </p>
+-->
+            <hr><br><br>
+            <div id="sec4">
+                <h1><span data-toggle="tooltip" data-placement="right" data-html="true" title="Ludovico <b>Venturi</b>">PHP</span></h1>
+                <section>
+                    <h2>Cos'è</h2>
+                    <p>
+                        <b>PHP</b>
+                    (acronimo ricorsivo di "PHP: Hypertext Preprocessor) è un linguaggio di    <b>scripting interpretato</b>, originariamente pensato per la
+                        programmazione di pagine web dinamiche.
+                    </p>
+                    <img src="../img/php.jpg" width="30%">
+                    <p>
+                        L'interprete PHP è un software libero distribuito sotto la PHP License.
+                    </p>
+                    <p>
+                    È principalmente utilizzato per sviluppare applicazioni web lato    <b>server</b>, ma può essere usato anche per scrivere <b>script</b> a riga
+                        di comando o <b>applicazioni</b> stand-alone con interfaccia grafica.
+                    </p>
+                    <p>
+                        PHP è un linguaggio a tipizzazione debole e dalla versione 5 migliora il
+                        supporto al paradigma di programmazione ad <b>oggetti</b>.
+                    </p>
+                    <p>
+                        PHP è in grado di interfacciarsi a innumerevoli DBMS tra cui MySQL.
+                    </p>
+                    <p>
+                        Le variabili in PHP iniziano sempre con il simbolo del <b>dollaro</b> ($) e
+                        il carattere successivo non deve essere un numero.
+                    </p>
+                </section>
+            </div>
+            <section id="sec4-1">
+                <h2>EasyPHP</h2>
+                <p>
+                    <b>EasyPHP</b> è un programma che semplifica la vita all’utente Windows nell’installazione di un
+                    ambiente in locale con un <b>web server locale Apache</b>, un modulo <b>PHP</b> e
+                    uno dei <b>DBMS</b> più utilizzati nel web, <b>MySQL</b>.
+                </p>
+                <img src="../img/easyphp.png">
+                <p>
+                    E’ una <u>piattaforma WAMP</u>: <b>piattaforma</b> perché permette di
+                svolgere più attività diverse ovvero racchiude più tipi di applicazioni;    <b>WAMP</b> poiché è l’acronimo di Windows, Apache, MySQL, PHP (esistono anche piattaforme LAMP e MAMP).<br><br>
+                    E' uno strumento che permette di simulare l'elaborazione lato server sulla propria macchina in locale.
+                </p>
+            </section>
+            <section id="sec4-2">
+                <h2>NetBeans</h2>
+                <p>
+                    NetBeans è un ambiente di sviluppo integrato (IDE) multi-linguaggio, nato nel giugno 2000 e scritto interamente in Java, scelto dalla Oracle Corporation come IDE ufficiale (per Java principalmetne) da contrapporre al più diffuso Eclipse. 
+                </p>
+                <img src="../img/netb.png" width="40%">
+                <p>
+                    E' possibile utilizzare NetBeans per molti linguaggi di programmazione, tra cui PHP.<br>
+                    Risulta funzionale poichè è possibile collegare direttamente il progetto al browser e al web server in modo da apportare modifiche in real-time.<br><br>
+                    Nella parte pratica della relazione verrà affrontato il procedimento di impostazione dei giusti percorsi insieme ad easyPHP.
+                </p>
+            </section>
+        <div class="spazio">
+        </div>
+        <script src="../lib/jquery-3.2.1/jquery-3.2.1.min.js"></script>
+        <script src="../lib/bootstrap-4.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../lib/scrollSpy/scrollspy.min.js"></script>
+        <script>
+            $("#side-menu").scrollspy({ offset: 10 });
+        </script>
+        <script src="../assets/js/js.js"></script>
+    </body>
+</html>
